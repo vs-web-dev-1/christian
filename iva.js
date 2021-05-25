@@ -1,27 +1,31 @@
 const IVA = {
     // Constante para el IVA general que es del 21%
-    general: 1.21,
+    general: 0.21,
 
     // Constante para el IVA reducido que es del 10%
-    reducido: 1.1,
+    reducido: 0.1,
 
     // Constante para el IVA superreducido que es del 4%
-    superreducido: 1.04
+    superreducido: 0.04
 }
 
-const libro = {
-    precio: 18,
+const agenda = {
+    nombre: 'agenda',
+    precio: 12,
     tipoIva: IVA.general
 }
 const ventana = {
+    nombre: 'ventana',
     precio: 270,
     tipoIva: IVA.reducido
 }
 const mascarilla = {
+    nombre: 'mascarilla',
     precio: 0.27,
     tipoIva: IVA.superreducido
 }
 
+/*
 console.log("El precio sin IVA del libro es de " 
     + libro.precio + "€ y el precio con IVA es de " 
         + (libro.precio*libro.tipoIva).toFixed(2) + "€");
@@ -33,3 +37,27 @@ console.log("El precio sin IVA de la ventana es de "
 console.log("El precio sin IVA de una mascarilla es de " 
     + mascarilla.precio + "€ y el precio con IVA es de " + 
         (mascarilla.precio*mascarilla.tipoIva).toFixed(4) + "€");
+*/
+
+function calcularCuotaIva(objeto) {
+    return objeto.precio * objeto.tipoIva;
+}
+
+function calcularImporteTotal(objeto) {
+    return objeto.precio + calcularCuotaIva(objeto);
+}
+
+// console.log(calcularCuotaIva(libro));
+// console.log(calcularImporteTotal(libro));
+
+function imprimirDetallePrecio(objeto) {
+    let cuotaIva = calcularCuotaIva(objeto);
+    let precioTotal = calcularImporteTotal(objeto);
+    return "El precio sin iva de la " + objeto.nombre + " es " + objeto.precio + "€, la cuota de IVA será " 
+    + cuotaIva + "€, por lo tanto el PVP será de " 
+        + precioTotal + "€"
+}
+
+console.log(imprimirDetallePrecio(agenda));
+console.log(imprimirDetallePrecio(ventana));
+console.log(imprimirDetallePrecio(mascarilla));
