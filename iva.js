@@ -6,23 +6,34 @@ const IVA = {
     reducido: 0.1,
 
     // Constante para el IVA superreducido que es del 4%
-    superreducido: 0.04
+    superreducido: 0.04,
+
+    sinIva: 0
 }
 
 const agenda = {
-    nombre: 'agenda',
+    nombre: 'Agenda',
     precio: 12,
-    tipoIva: IVA.general
+    tipoIva: IVA.general,
+    iva: true
 }
 const ventana = {
-    nombre: 'ventana',
+    nombre: 'Ventana',
     precio: 270,
-    tipoIva: IVA.reducido
+    tipoIva: IVA.reducido,
+    iva: true
 }
 const mascarilla = {
-    nombre: 'mascarilla',
+    nombre: 'Mascarilla',
     precio: 0.27,
-    tipoIva: IVA.superreducido
+    tipoIva: IVA.superreducido,
+    iva: true
+}
+const curso = {
+    nombre: 'Curso Front-End',
+    precio: 300,
+    tipoIva: IVA.sinIva,
+    iva: false
 }
 
 /*
@@ -58,6 +69,19 @@ function imprimirDetallePrecio(objeto) {
         + precioTotal + "€"
 }
 
-console.log(imprimirDetallePrecio(agenda));
-console.log(imprimirDetallePrecio(ventana));
-console.log(imprimirDetallePrecio(mascarilla));
+// console.log(imprimirDetallePrecio(agenda));
+// console.log(imprimirDetallePrecio(ventana));
+// console.log(imprimirDetallePrecio(mascarilla));
+
+let productos = [];
+productos.push(agenda, ventana, mascarilla, curso);
+
+productos.forEach( function(producto) {
+    let tieneIva = producto.iva;
+    if (tieneIva) {
+        console.log(`La ${producto.nombre} tiene IVA y el desglose de su precio es el siguiente:
+            ${imprimirDetallePrecio(producto)}`);
+    } else {
+        console.log(`El ${producto.nombre} está exento de IVA y tiene un precio de ${producto.precio}€`);
+    }
+})
