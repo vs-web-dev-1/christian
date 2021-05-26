@@ -77,7 +77,7 @@ let productos = [];
 productos.push(agenda, ventana, mascarilla, curso);
 
 productos.forEach( function(producto) {
-    let tieneIva = producto.iva;
+    let tieneIva = producto.tipoIva !== 0;
     if (tieneIva) {
         console.log(`La ${producto.nombre} tiene IVA y el desglose de su precio es el siguiente:
             ${imprimirDetallePrecio(producto)}`);
@@ -85,3 +85,13 @@ productos.forEach( function(producto) {
         console.log(`El ${producto.nombre} está exento de IVA y tiene un precio de ${producto.precio}€`);
     }
 })
+
+// productos.forEach( function(producto) {
+//     let tieneIva = producto.iva;
+//     if (tieneIva) {
+//         console.log(`La ${producto.nombre} tiene IVA y el desglose de su precio es el siguiente:
+//             ${imprimirDetallePrecio(producto)}`);
+//     } else {
+//         console.log(`El ${producto.nombre} está exento de IVA y tiene un precio de ${producto.precio}€`);
+//     }
+// })
