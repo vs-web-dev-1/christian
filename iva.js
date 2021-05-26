@@ -8,6 +8,7 @@ const IVA = {
     // Constante para el IVA superreducido que es del 4%
     superreducido: 0.04,
 
+    // Constante para productos exentos de IVA
     sinIva: 0
 }
 
@@ -76,6 +77,7 @@ function imprimirDetallePrecio(objeto) {
 let productos = [];
 productos.push(agenda, ventana, mascarilla, curso);
 
+// Aprovechando el parámetro tipoIva que teníamos creado anteriormente
 productos.forEach( function(producto) {
     let tieneIva = producto.tipoIva !== 0;
     if (tieneIva) {
@@ -86,6 +88,7 @@ productos.forEach( function(producto) {
     }
 })
 
+// Utilizando un nuevo parámetro true o false para ver si el producto está exento de IVA o no
 // productos.forEach( function(producto) {
 //     let tieneIva = producto.iva;
 //     if (tieneIva) {
