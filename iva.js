@@ -90,8 +90,7 @@ productos.forEach( function(producto) {
 
 // Utilizando un nuevo parámetro true o false para ver si el producto está exento de IVA o no
 // productos.forEach( function(producto) {
-//     let tieneIva = producto.iva;
-//     if (tieneIva) {
+//     if (producto.iva) {
 //         console.log(`La ${producto.nombre} tiene IVA y el desglose de su precio es el siguiente:
 //             ${imprimirDetallePrecio(producto)}`);
 //     } else {
