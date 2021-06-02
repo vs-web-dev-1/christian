@@ -1,6 +1,17 @@
 const url = "https://api.frankfurter.app/latest";
 console.log("iniciando..." + url);
 
+document.getElementById("calcular").addEventListener("click", function () {
+    const urlConversor = "&fromEUR&to=USD";
+    const cantidad = document.getElementById("euros");
+    console.log(cantidad.value);
+
+    const urlEnviar = url + "?" + cantidad.name + "=" + cantidad.value + urlConversor;
+    console.log(urlEnviar);
+
+    document.getElementById('enlace').setAttribute('href', urlEnviar);
+});
+
 // promesas
 fetch(url)
     .then((res) => res.json())

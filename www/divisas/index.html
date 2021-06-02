@@ -11,6 +11,18 @@
 
     <body>
         <header>
+            <h1 id="main-title">Calcular euro a dólar</h1>
+        </header>
+        <main>
+            <form id="calcular" method="get" action="https://api.frankfurter.app/latest?amount=10&fromEUR&to=USD">
+                <label>Cantidad euros:</label>
+                <input id="euros" type="number" name="amount" value="10"/>
+                <a rel="nofollow" id="enlace" href="#" class="automatic">Calcular</a>
+                <!-- <button type="button" id="calcular">Calcular</button> -->
+            </form>
+            <!-- <script src="./main.js"></script> -->
+        </main>
+        <header>
             <h1 id="main-title">Últimas cotizaciones del Euro (€)</h1>
         </header>
         <main>
@@ -29,8 +41,9 @@
                     <span class="divisa">JPY : </span><span class="contravalor">133.79</span>
                 </li> -->
             </ul>
-            <script src="./main.js"></script>
+            <!-- <script src="./main.js"></script> -->
         </main>
     </body>
+        <script src="./main.js"></script>
 
 </html>
